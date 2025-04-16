@@ -2,6 +2,8 @@
 #define LED_PIN 48
 #define D3 6
 #define D4 7
+#define D5 8
+#define D6 9
 
 void TIMER_ISR(void *pvParameters) {
   
@@ -16,38 +18,32 @@ void taskUpdate(){
   // whole sequence takes 9 seconds. red (0-5), green (6-8), yellow (8-9)
   // change light on first set of leds
   if(timeCounter < 5){
-    digitalWrite(5, HIGH);
-    digitalWrite(6, LOW);
-    digitalWrite(7, LOW);
+    digitalWrite(D3, HIGH);
+    digitalWrite(D4, HIGH);
   }
-  else if(timeCounter < 8){
-    digitalWrite(5, LOW);
-    digitalWrite(6, LOW);
-    digitalWrite(7, HIGH);
+  else if(timeCounter < 7){
+    digitalWrite(D3, LOW);
+    digitalWrite(D4, HIGH);
   }
   else if(timeCounter < 10){
-    digitalWrite(5, LOW);
-    digitalWrite(6, HIGH);
-    digitalWrite(7, LOW);
+    digitalWrite(D3, HIGH);
+    digitalWrite(D4, LOW);
   }
   
   int shiftedTime = (timeCounter + 5) % 10;
   
   // change light on second set of leds
   if(shiftedTime < 5){
-    digitalWrite(8, HIGH);
-    digitalWrite(9, LOW);
-    digitalWrite(10, LOW);
+    digitalWrite(D5, HIGH);
+    digitalWrite(D6, HIGH);
   }
-  else if(shiftedTime < 8){
-    digitalWrite(8, LOW);
-    digitalWrite(9, LOW);
-    digitalWrite(10, HIGH);
+  else if(shiftedTime < 7){
+    digitalWrite(D5, LOW);
+    digitalWrite(D6, HIGH);
   }
   else if(shiftedTime < 10){
-    digitalWrite(8, LOW);
-    digitalWrite(9, HIGH);
-    digitalWrite(10, LOW);
+    digitalWrite(D5, HIGH);
+    digitalWrite(D6, LOW);
   }
   
   //increase the tick timeCounter
