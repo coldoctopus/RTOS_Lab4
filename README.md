@@ -1,7 +1,6 @@
 # RTOS_Lab4
-Lab 4 source code. Implement on real life esp32 board
-Scheduler is Dr.Nhan's version
-Programming langauge is C (not C++ !)
+Lab 4 source code. Implement on real-life ESP32 board
+
 
 Group members:
 Duong Vo Thien Bao (10422015) 
