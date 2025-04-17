@@ -69,7 +69,6 @@ void setup() {
   SCH_Init();
   SCH_Add_Task(taskUpdate, 0, 100);
 
-  
 }
 
 void loop() {
