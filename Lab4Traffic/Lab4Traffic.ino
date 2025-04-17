@@ -13,7 +13,6 @@ void TIMER_ISR(void *pvParameters) {
   }
 }
 
-/*
 int timeCounter = 0;
 void taskUpdate(){
   // whole sequence takes 9 seconds. red (0-5), green (6-8), yellow (8-9)
@@ -23,12 +22,13 @@ void taskUpdate(){
     digitalWrite(D4, HIGH);
   }
   else if(timeCounter < 8){
-    digitalWrite(D3, LOW);
-    digitalWrite(D4, HIGH);
-  }
-  else if(timeCounter < 10){
+    
     digitalWrite(D3, HIGH);
     digitalWrite(D4, LOW);
+  }
+  else if(timeCounter < 10){
+    digitalWrite(D3, LOW);
+    digitalWrite(D4, HIGH);
   }
   
   int shiftedTime = (timeCounter + 5) % 10;
@@ -39,52 +39,19 @@ void taskUpdate(){
     digitalWrite(D6, HIGH);
   }
   else if(shiftedTime < 8){
-    digitalWrite(D5, LOW);
-    digitalWrite(D6, HIGH);
-  }
-  else if(shiftedTime < 10){
+    
     digitalWrite(D5, HIGH);
     digitalWrite(D6, LOW);
+  }
+  else if(shiftedTime < 10){
+    digitalWrite(D5, LOW);
+    digitalWrite(D6, HIGH);
   }
   
   //increase the tick timeCounter
   timeCounter++;
   
   //reset timer after 9 second sequence
-  if (timeCounter >= 10)
-    timeCounter = 0;
-}*/
-
-int timeCounter = 0;
-void taskUpdate(){
-  if (timeCounter < 5) {
-    digitalWrite(D3, HIGH);
-    digitalWrite(D4, HIGH);
-  }
-  else if (timeCounter < 8) {
-    digitalWrite(D3, LOW);
-    digitalWrite(D4, HIGH);
-  }
-  else if (timeCounter < 10) {
-    digitalWrite(D3, HIGH);
-    digitalWrite(D4, LOW);
-  }
-  
-  int shiftedTime = (timeCounter + 5) % 10;
-  if (shiftedTime < 5) {
-    digitalWrite(D5, HIGH);
-    digitalWrite(D6, HIGH);
-  }
-  else if (shiftedTime < 8) {
-    digitalWrite(D5, LOW);
-    digitalWrite(D6, HIGH);
-  }
-  else if (shiftedTime < 10) {
-    digitalWrite(D5, HIGH);
-    digitalWrite(D6, LOW);
-  }
-  
-  timeCounter++;
   if (timeCounter >= 10)
     timeCounter = 0;
 }
